@@ -41,8 +41,22 @@ function analyzeSentenceWithRadical(sentence, radical) {
     Object.keys(radicalCharCount).forEach(char => {
         console.log(`${char}: ${radicalCharCount[char]}`);
     });
+
+    //html
+    let resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = ''; // Clear previous results
+
+    if (Object.keys(charactersWithRadical).length === 0) {
+        resultDiv.innerHTML = '<p>No characters with the radical found.</p>';
+    } else {
+        for (let char in charactersWithRadical) {
+            resultDiv.innerHTML += `<p>Character: ${char}, Count: ${charactersWithRadical[char].count}, Components Level 1: ${charactersWithRadical[char].components}</p>`;
+        }
+    }
 }
 
-// Example usage
-let sentence = '女人追求关系，男人追求占有。—小仓千加子一语道破。女人的嫉妒指向夺去男人的其他女人，而男人的嫉妒则指向了背叛自己的女人。';
-analyzeSentenceWithRadical(sentence, '女');
+document.getElementById('analyzeButton').addEventListener('click', function () {
+    let sentence = document.getElementById('sentenceInput').value;
+    analyzeSentenceWithRadical(sentence, '女');
+});
+
