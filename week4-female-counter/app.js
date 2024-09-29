@@ -43,20 +43,23 @@ function analyzeSentenceWithRadical(sentence, radical) {
     });
 
     //html
-    let resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = ''; // Clear previous results
+    // let resultDiv = document.getElementById('result');
+    // resultDiv.innerHTML = ''; // Clear previous results
 
-    if (Object.keys(charactersWithRadical).length === 0) {
-        resultDiv.innerHTML = '<p>No characters with the radical found.</p>';
-    } else {
-        for (let char in charactersWithRadical) {
-            resultDiv.innerHTML += `<p>Character: ${char}, Count: ${charactersWithRadical[char].count}, Components Level 1: ${charactersWithRadical[char].components}</p>`;
-        }
-    }
+    // if (Object.keys(charactersWithRadical).length === 0) {
+    //     resultDiv.innerHTML = '<p>No characters with the radical found.</p>';
+    // } else {
+    //     for (let char in charactersWithRadical) {
+    //         resultDiv.innerHTML += `<p>Character: ${char}, Count: ${charactersWithRadical[char].count}, Components Level 1: ${charactersWithRadical[char].components}</p>`;
+    //     }
+    // }
 }
 
-document.getElementById('analyzeButton').addEventListener('click', function () {
-    let sentence = document.getElementById('sentenceInput').value;
-    analyzeSentenceWithRadical(sentence, '女');
-});
+let sentence = '女人追求关系，男人追求占有。—小仓千加子一语道破。女人的嫉妒指向夺去男人的其他女人，而男人的嫉妒则指向了背叛自己的女人。因为女人的背叛是对男人所有权的侵犯，建立在占有一个女人的基础上而得以维系的男人的自我，会因此面临崩溃的危机。对于女人，嫉妒是以其他女人为对手围绕男人展开的竞争；而对于男人，嫉妒则是维护自尊和自我确认的争斗';
+analyzeSentenceWithRadical(sentence, '女');
+
+// document.getElementById('analyzeButton').addEventListener('click', function () {
+//     let sentence = document.getElementById('sentenceInput').value;
+//     analyzeSentenceWithRadical(sentence, '女');
+// });
 
